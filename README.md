@@ -27,10 +27,10 @@ Mini sistema full-stack de To-Do List con autenticación, CRUD de tareas, filtro
 **Requisitos:** Docker Desktop instalado y corriendo.
 
 ```bash
-git clone <https://github.com/SantiagoGil889/Gestordetareas>
-cd taskflow
+git clone <https://github.com/SantiagoGil889/PRUEBA-T>
+cd PRUEBA T
 
-docker-compose up --build
+docker compose up --build
 ```
 
 | Servicio | URL |
@@ -154,7 +154,7 @@ taskflow/
 
 ## Decisiones técnicas
 
-- **JWT en localStorage**:
+- **JWT en localStorage**
 - **COALESCE en UPDATE**: Permite actualizaciones parciales sin necesidad de enviar todos los campos.
 - **Filtros en backend (SQL)**: Se aplican directamente en la consulta para no transferir datos innecesarios.
 - **Retry de conexión DB**: El backend intenta conectar hasta 10 veces cada 3 segundos, sobre todo utilizado en docker donde puede haber problemas al momento de la conexión de la DB.
@@ -173,6 +173,5 @@ taskflow/
 
 ## Pendientes
 
-- Refresh tokens para sesiones más largas sin relogin.
 - Fecha de vencimiento en las tareas.
 - Ordenamiento configurable por el usuario.
