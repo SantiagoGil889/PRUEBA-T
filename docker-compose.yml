@@ -1,0 +1,53 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: taskflow_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER:     todouser
+      POSTGRES_PASSWORD: todopass
+      POSTGRES_DB:       tododb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test:     ["CMD-SHELL", "pg_isready -U todouser -d tododb"]
+      interval: 5s
+      timeout:  5s
+      retries:  10
+
+  backend:
+    build:
+      context: ./backend
+    container_name: taskflow_backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV:     production
+      PORT:         4000
+      DB_HOST:      db
+      DB_PORT:      5432
+      DB_USER:      todouser
+      DB_PASSWORD:  todopass
+      DB_NAME:      tododb
+      JWT_SECRET:   taskflow_super_secret_jwt_2026_change_me
+      FRONTEND_URL: http://localhost:3000
+    ports:
+      - "4000:4000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: taskflow_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
