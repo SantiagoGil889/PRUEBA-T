@@ -8,13 +8,13 @@ Mini sistema full-stack de To-Do List con autenticación, CRUD de tareas, filtro
 
 | Capa | Tecnología | Justificación |
 |------|------------|---------------|
-| **Backend** | Node.js + Express | Ligero, maduro y ampliamente conocido para APIs REST |
+| **Backend** | Node.js + Express | Ligero y conocido para el uso de APIs REST |
 | **Auth** | JWT + bcryptjs | Stateless  bcrypt con salt=12 para hash seguro |
 | **Validación** | express-validator | Declarativo, integrado con Express, mensajes personalizables |
 | **Base de datos** | PostgreSQL 15 | Soporta CHECK constraints, índices y transacciones |
 | **Frontend** | React 18 + Vite | React es estándar de industria para SPAs |
 | **Estilos** | Tailwind CSS 3 | Diseño |
-| **Ruteo** | React Router v6 | Rutas protegidas y navegación declarativa |
+| **Ruteo** | React Router v6 | Rutas protegidas |
 | **HTTP client** | Axios | Interceptores para inyección de token y manejo global de 401 |
 | **Infraestructura** | Docker + nginx | Containerización reproducible |
 
