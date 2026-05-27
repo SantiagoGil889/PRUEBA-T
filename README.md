@@ -12,7 +12,7 @@ Mini sistema full-stack de To-Do List con autenticación, CRUD de tareas, filtro
 | **Auth** | JWT + bcryptjs | Stateless  bcrypt con salt=12 para hash seguro |
 | **Validación** | express-validator | Declarativo, integrado con Express, mensajes personalizables |
 | **Base de datos** | PostgreSQL 15 | Soporta CHECK constraints, índices y transacciones |
-| **Frontend** | React 18 + Vite | React es estándar de industria para SPAs |
+| **Frontend** | React 18 + Vite | Para un sistema de listas de tareas dinámico, la fluidez visual y la respuesta inmediata a las acciones del usuario |
 | **Estilos** | Tailwind CSS 3 | Diseño |
 | **Ruteo** | React Router v6 | Rutas protegidas |
 | **HTTP client** | Axios | Interceptores para inyección de token y manejo global de 401 |
